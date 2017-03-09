@@ -1,5 +1,31 @@
 
 
+#' @rdname which
+#' @export
+table <- function(...) {
+  UseMethod("table")
+}
+
+#' @rdname which
+#' @export
+table.default <- function(...) {
+  base::table(...)
+}
+
+
+#' Create cross tables from lvec objects
+#' 
+#' @param ... an object of type \code{\link{lvec}}
+#' @param useNA what to do with missing values. See \code{\link{table}}.
+#' @param chunk_size an integer specifying the size of the chunks with which the
+#'  \code{\link{lvec}} objects are processed.
+#'  
+#' @seealso 
+#' This function duplicates the functionalty of the \code{\link{table}} 
+#' function.
+#' 
+#' @importFrom stats aggregate
+#' @export
 table.lvec <- function(..., useNA = c("ifany", "no", "always"), chunk_size = 1E6) {
   # Process and check input
   columns <- list(...)

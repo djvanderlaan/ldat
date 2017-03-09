@@ -14,6 +14,7 @@
 #' \code{\link{duplicated}} in which \code{fromLast} determines which records
 #' are marked as duplicates.
 #' 
+#' @importFrom utils head tail 
 #' @rdname duplicated
 #' @export
 duplicated.lvec <- function(x, incomparables = FALSE, chunk_size = 5E6, fromLast = FALSE, ...) {
