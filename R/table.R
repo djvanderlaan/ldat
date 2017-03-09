@@ -1,6 +1,6 @@
 
 
-table.lvec <- function(..., useNA = c("ifany", "no", "always")) {
+table.lvec <- function(..., useNA = c("ifany", "no", "always"), chunk_size = 1E6) {
   # Process and check input
   columns <- list(...)
   if (length(columns) < 1) stop("No vectors given.")
@@ -8,8 +8,9 @@ table.lvec <- function(..., useNA = c("ifany", "no", "always")) {
   if (length(unique(lengths)) != 1) stop("Lengths of vectors differ.")
   islvec <- sapply(columns, is_lvec)
   if (!all(islvec)) stop("Not all vectors are of type lvec.")
+  useNA <- match.arg(useNA)
   # Ready to go
-  chunks <- chunk(columns[[1]])
+  chunks <- chunk(columns[[1]], chunk_size = chunk_size)
   tab <- vector("list", length(chunks))
   i <- 1
   for (c in chunks) {
@@ -19,20 +20,31 @@ table.lvec <- function(..., useNA = c("ifany", "no", "always")) {
     tab[[i]] <- as.data.frame(t)
     i <- i + 1
   }
-  tab
+  # We now have a list of data.frames; make a table from that
+  tab <- do.call(rbind, tab)
+  # Convert table columns to factor: to ensure that NA's are counted
+  for (col in seq_len(ncol(tab)-1)) 
+    tab[[col]] <- factor(tab[[col]], exclude = NULL)
+  
+  tab <- aggregate(tab[ncol(tab)], tab[seq_len(ncol(tab)-1)], sum, 
+    drop = FALSE, simplify = TRUE)
+  as.table(df_to_matrix(tab))
+  #structure(df_to_matrix(tab), class = "table")
+  #tab
 }
-
 
 df_to_matrix <- function(df) {
   indices <- df[seq_len(ncol(df)-1)]
   
   unique_indices <- lapply(indices, unique)
   tab <- do.call(expand.grid, rev(unique_indices))
-  df <- merge(tab, df, all.x = TRUE)
+  df <- merge(tab, df, all.x = TRUE, sort = FALSE)
   
-  dim <- sapply(unique_indices, length)
+  # as.numeric needed to remove names from dim
+  dim <- as.numeric(sapply(unique_indices, length))
   
   result <- array(df[[length(df)]], dim = dim,
     dimnames = unique_indices)
   result[is.na(result)] <- 0
+  result
 }
