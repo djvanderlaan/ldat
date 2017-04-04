@@ -10,12 +10,16 @@ match(x, table, ...)
 
 \method{match}{default}(x, table, ...)
 
-\method{match}{lvec}(x, table, ...)
+\method{match}{lvec}(x, table, na_incomparable = FALSE, ...)
 }
 \arguments{
 \item{x}{\code{\link{lvec}} of values to be matched}
 
 \item{table}{vector of values in which to look for matches.}
+
+\item{...}{optional arguments passed to and from other methods.}
+
+\item{na_incomparable}{can NA's and NaN's be matched.}
 }
 \value{
 Returns a numeric \code{\link{lvec}} of the same length as \code{x} with the

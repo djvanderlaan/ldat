@@ -17,6 +17,7 @@ match.default <- function(x, table, ...) {
 #' @param x \code{\link{lvec}} of values to be matched
 #' @param table vector of values in which to look for matches.
 #' @param na_incomparable can NA's and NaN's be matched. 
+#' @param ... optional arguments passed to and from other methods.
 #' 
 #' @return 
 #' Returns a numeric \code{\link{lvec}} of the same length as \code{x} with the
@@ -24,7 +25,7 @@ match.default <- function(x, table, ...) {
 #' in \code{table} is found, \code{NA} is returned for the corresponding record.
 #'
 #' @rdname match
-#' @useDynLib lvec.lstats
+#' @useDynLib lvec.stats
 #' @export
 match.lvec <- function(x, table, na_incomparable = FALSE, ...) {
   if (!is_lvec(table)) table <- as_lvec(table)
