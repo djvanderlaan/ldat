@@ -19,7 +19,8 @@ Basic statistical functionality for lvec objects
 - `duplicated`: check for duplicated values in an lvec object.
 - `unique`: select unique values from an lvec object.
 - `which`: return the indices of true elements.
-- Other functions implemented for lvec objects: `is.na`.
+- `match`: lookup elements in a other vector
+- `is.na`: logical vector with missing values.
 
 
 ## Other functions for working with lvec object ##
