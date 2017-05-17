@@ -25,4 +25,3 @@ Indexing of lvec objects
 These functions are a wrapper around \code{\link{lget}} and 
 \code{\link{lset}}.
 }
-

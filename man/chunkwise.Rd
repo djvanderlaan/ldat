@@ -31,4 +31,3 @@ Process an lvec in chunks
 For examples of its use see \code{\link{mean.lvec}} and 
 \code{\link{sum.lvec}}.
 }
-

@@ -2,9 +2,12 @@
 % Please edit documentation in R/append.R
 \name{append}
 \alias{append}
+\alias{append}
 \title{Append a vector to an lvec}
 \usage{
-append(x, y, clone = TRUE)
+append(x, y, clone = TRUE, ...)
+
+append(x, y, clone = TRUE, ...)
 }
 \arguments{
 \item{x}{\code{\link{lvec}} to append to.}
@@ -14,6 +17,8 @@ using \code{\link{as_lvec}}.}
 
 \item{clone}{should \code{x} be cloned first. If not, the input \code{x} is
 modified.}
+
+\item{...}{ignored; used to pass additional arguments to other methods.}
 }
 \value{
 Returns an lvec combining both \code{x} and \code{y}. When \code{x} is 
@@ -22,4 +27,3 @@ Returns an lvec combining both \code{x} and \code{y}. When \code{x} is
 \description{
 Append a vector to an lvec
 }
-

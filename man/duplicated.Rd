@@ -32,4 +32,3 @@ as duplicate is undefined. This is unlike the regular
 \code{\link{duplicated}} in which \code{fromLast} determines which records
 are marked as duplicates.
 }
-
