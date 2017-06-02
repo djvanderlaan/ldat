@@ -33,3 +33,4 @@ Math is group generic implementing the following functions:
 \code{\link{cummax}}, \code{\link{cummin}}. For more information
 see \code{\link{Math}}.
 }
+

@@ -22,3 +22,4 @@ Create cross tables from lvec objects
 This function duplicates the functionalty of the \code{\link{table}} 
 function.
 }
+

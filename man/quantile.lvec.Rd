@@ -33,3 +33,4 @@ length of 11 and \code{prob} equal to 0.5, it selects the 6th element from
 the (partially) sorted \code{x}. For large enough vectors this is a 
 reasonable approach.
 }
+

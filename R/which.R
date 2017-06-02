@@ -32,7 +32,7 @@ which.lvec <- function(x, ...) {
   for (c in chunks) {
     d <- which(as_rvec(x[range = c]))
     d <- d + (c[1] - 1)
-    result <- append(result, d, clone = FALSE)
+    result <- append.lvec(result, d, clone = FALSE)
   }
   result
 }

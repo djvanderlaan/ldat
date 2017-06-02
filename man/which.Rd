@@ -35,3 +35,4 @@ x <- as_lvec(runif(1E6) > 0.1)
 which(x)
 
 }
+

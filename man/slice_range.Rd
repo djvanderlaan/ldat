@@ -2,9 +2,9 @@
 % Please edit documentation in R/slice_range.R
 \name{slice_range}
 \alias{slice_range}
-\alias{slice_range.lvec}
-\alias{slice_range.default}
 \alias{slice_range.data.frame}
+\alias{slice_range.default}
+\alias{slice_range.lvec}
 \title{Select a range of records from an object}
 \usage{
 slice_range(x, range, begin = range[1], end = range[2], ...)
@@ -47,3 +47,4 @@ slice_range(1:20, range = c(5,7))
 slice_range(x, range = c(5,7), as_r = TRUE)
 
 }
+

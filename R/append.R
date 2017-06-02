@@ -5,7 +5,6 @@ append <- function(x, y, ...) {
   UseMethod("append")
 }
 
-
 #' Append a vector to an lvec
 #' 
 #' @param x \code{\link{lvec}} to append to.
@@ -21,7 +20,7 @@ append <- function(x, y, ...) {
 #'
 #' @rdname append
 #' @export
-append <- function(x, y, clone = TRUE, ...) {
+append.lvec <- function(x, y, clone = TRUE, ...) {
   if (!is_lvec(y)) y <- as_lvec(y)
   if (is.null(x) || length(x) == 0) return(clone(y))
   if (!is_lvec(x)) stop("x should be of type lvec (or NULL)")
@@ -31,5 +30,17 @@ append <- function(x, y, clone = TRUE, ...) {
     strlen(x) < strlen(y)) strlen(x) <- strlen(y)
   length(x) <- lx + length(y)
   lset(x, range = c(lx+1, length(x)), values = y)
+}
+
+#' @rdname append
+#' @export
+append.ldat <- function(x, y, clone = TRUE, ...) {
+  if (!is_ldat(x)) stop("x should be of type ldat (or NULL)")
+  if (is.null(x)) return(clone(x))
+  stopifnot(length(x) == length(y))
+  for (i in seq_along(x)) {
+    x[[i]] <- append(x[[i]], y[[i]], clone = clone)
+  }
+  x
 }
 

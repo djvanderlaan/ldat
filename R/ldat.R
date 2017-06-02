@@ -66,3 +66,10 @@ ldat <- function(...) {
   x
 }
 
+#' @param x object for which to check if it is of type ldat
+#' @rdname ldat
+#' @export
+is_ldat <- function(x) {
+  methods::is(x, 'ldat')
+}
+

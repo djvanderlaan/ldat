@@ -52,3 +52,4 @@ slice_range.data.frame <- function(x, range, begin = range[1], end = range[2],
   if (begin < 1 || end > nrow(x)) stop('Index out of range')
   x[seq.int(begin, end, by = 1), ]
 }
+

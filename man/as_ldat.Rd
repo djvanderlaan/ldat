@@ -33,3 +33,4 @@ a <- data.frame(a = 1:10, b = rnorm(10))
 b <- as_ldat(a)
 
 }
+
