@@ -35,6 +35,13 @@ slice_range.lvec <- function(x, range, begin = range[1], end = range[2],
   if (as_r) as_rvec(res) else res
 }
 
+#' @rdname slice_range
+#' @export
+slice_range.ldat <- function(x, range, begin = range[1], end = range[2],
+    as_r = FALSE, ...) {
+  res <- lapply(x, slice_range, begin = begin, end = end, as_r = as_r, ...)
+  if (as_r) data.frame(res, stringsAsFactors = FALSE) else structure(res, class = 'ldat')
+}
 
 #' @rdname slice_range
 #' @export

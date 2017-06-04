@@ -4,12 +4,16 @@
 \alias{slice_range}
 \alias{slice_range.data.frame}
 \alias{slice_range.default}
+\alias{slice_range.ldat}
 \alias{slice_range.lvec}
 \title{Select a range of records from an object}
 \usage{
 slice_range(x, range, begin = range[1], end = range[2], ...)
 
 \method{slice_range}{lvec}(x, range, begin = range[1], end = range[2],
+  as_r = FALSE, ...)
+
+\method{slice_range}{ldat}(x, range, begin = range[1], end = range[2],
   as_r = FALSE, ...)
 
 \method{slice_range}{default}(x, range, begin = range[1], end = range[2],
