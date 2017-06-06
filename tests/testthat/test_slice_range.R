@@ -46,7 +46,7 @@ test_that("slice_range works for data.frames", {
 })
 
 
-test_that("slice_range works for data.frames", {
+test_that("slice_range works for ldat objects", {
   x_r <- data.frame(x = 1:20, y = letters[1:20])
   x <- as_ldat(x_r)
   
