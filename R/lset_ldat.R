@@ -16,7 +16,7 @@
 #' assigned to the corresponding element of \code{x}.
 #'
 #' @export
-lset.ldat <- function(x, index = NULL, values, range = NULL) {
+lset.ldat <- function(x, index = NULL, values, range = NULL, ...) {
   if (!is.null(ncol(values))) {
     # data.frame like object
     stopifnot(ncol(values) > 0)

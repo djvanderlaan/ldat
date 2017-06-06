@@ -4,7 +4,7 @@
 \alias{lset.ldat}
 \title{Set values is an ldat object}
 \usage{
-lset.ldat(x, index = NULL, values, range = NULL)
+\method{lset}{ldat}(x, index = NULL, values, range = NULL, ...)
 }
 \arguments{
 \item{x}{an object of type \code{\link{ldat}}}

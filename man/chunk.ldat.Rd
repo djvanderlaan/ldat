@@ -4,7 +4,7 @@
 \alias{chunk.ldat}
 \title{Generate a number of index ranges from an ldat object}
 \usage{
-chunk.ldat(x, chunk_size = 5e+06, ...)
+\method{chunk}{ldat}(x, chunk_size = 5e+06, ...)
 }
 \arguments{
 \item{x}{an object of type \code{\link{ldat}} for which the index ranges 
