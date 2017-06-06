@@ -28,6 +28,15 @@ append.lvec <- function(x, y, clone = TRUE, ...) {
   if (clone) x <- clone(x)
   if (lvec_type(x) == "character" && lvec_type(x) == "character" &&
     strlen(x) < strlen(y)) strlen(x) <- strlen(y)
+  if (!is.null(rattr(x, "class")) && rattr(x, "class") == "factor") {
+    if (is.null(rattr(y, "class")) || rattr(y, "class") != "factor")
+      stop("y is not a factor vector")
+    if (!isTRUE(all.equal(rattr(x, "levels"), rattr(y, "levels")))) {
+      newlevels <- union(rattr(x, "levels"), rattr(y, "levels"))
+      rattr(x, "levels") <- newlevels
+      y <- elementwise(y, function(d) factor(d, levels = newlevels))
+    }
+  }
   length(x) <- lx + length(y)
   lset(x, range = c(lx+1, length(x)), values = y)
 }
@@ -35,8 +44,8 @@ append.lvec <- function(x, y, clone = TRUE, ...) {
 #' @rdname append
 #' @export
 append.ldat <- function(x, y, clone = TRUE, ...) {
-  if (!is_ldat(x)) stop("x should be of type ldat (or NULL)")
-  if (is.null(x)) return(clone(x))
+  if (!is_ldat(x) && !is.null(x)) stop("x should be of type ldat (or NULL)")
+  if (is.null(x)) return(clone(y))
   stopifnot(length(x) == length(y))
   for (i in seq_along(x)) {
     x[[i]] <- append(x[[i]], y[[i]], clone = clone)
