@@ -4,12 +4,14 @@
 \alias{median.lvec}
 \title{Calculate the median of an lvec}
 \usage{
-\method{median}{lvec}(x, na.rm = TRUE)
+\method{median}{lvec}(x, na.rm = TRUE, ...)
 }
 \arguments{
 \item{x}{an object of type \code{\link{lvec}}.}
 
 \item{na.rm}{remove missing values before calculating the quantiles}
+
+\item{...}{ignored.}
 }
 \description{
 Calculate the median of an lvec
@@ -17,4 +19,3 @@ Calculate the median of an lvec
 \seealso{
 For more details see \code{\link{quantile.lvec}}.
 }
-

@@ -19,7 +19,7 @@
 chunk.ldat <- function(x, chunk_size = 5E6, ...) {
   if (missing(chunk_size)) chunk_size <- getOption("chunk_size", chunk_size)
   nchunks <- ceiling(nrow(x) / chunk_size)
-  pos <- seq(1, nrow(x)+1, length.out = nchunks+1)
+  pos <- round(seq(1, nrow(x)+1, length.out = nchunks+1))
   start <- pos[seq_len(length(pos)-1)]
   end   <- pos[seq_len(length(pos)-1) + 1] - 1
   split(cbind(start, end), seq_len(nchunks))

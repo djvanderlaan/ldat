@@ -3,11 +3,17 @@
 \name{[.lvec}
 \alias{[.lvec}
 \alias{[<-.lvec}
+\alias{[.ldat}
+\alias{[<-.ldat}
 \title{Indexing of lvec objects}
 \usage{
 \method{[}{lvec}(x, i = NULL, range = NULL)
 
 \method{[}{lvec}(x, i, range) <- value
+
+\method{[}{ldat}(x, i, j, ..., range = NULL, clone = TRUE)
+
+\method{[}{ldat}(x, i, range) <- value
 }
 \arguments{
 \item{x}{an object of type \code{\link{lvec}}}
@@ -17,6 +23,12 @@
 \item{range}{an range of indices. See \code{\link{lget}}.}
 
 \item{value}{new values. See \code{\link{lget}}.}
+
+\item{j}{a selection of columns (a character, numeric or logical vector).}
+
+\item{...}{ignored.}
+
+\item{clone}{\code{\link{clone}} columns when selecting only columns.}
 }
 \description{
 Indexing of lvec objects
@@ -25,4 +37,3 @@ Indexing of lvec objects
 These functions are a wrapper around \code{\link{lget}} and 
 \code{\link{lset}}.
 }
-

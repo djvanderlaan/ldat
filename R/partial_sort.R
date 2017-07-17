@@ -103,13 +103,14 @@ quantile.lvec <- function(x, probs = seq(0, 1, 0.25), names = TRUE,
 #' 
 #' @param x an object of type \code{\link{lvec}}.
 #' @param na.rm remove missing values before calculating the quantiles
+#' @param ... ignored.
 #'
 #' @seealso
 #' For more details see \code{\link{quantile.lvec}}.
 #'
 #' @importFrom stats median
 #' @export
-median.lvec <- function(x, na.rm = TRUE) {
+median.lvec <- function(x, na.rm = TRUE, ...) {
   res <- quantile(x, probs = 0.5, na.rm = na.rm, names = FALSE)
   as.numeric(res)
 }

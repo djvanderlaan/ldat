@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <iomanip>
+#include "r_export.h"
 
 class porder_visitor : public ldat::lvec_visitor {
   public:

@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <iomanip>
+#include "r_export.h"
 
 std::ostream& operator<<(std::ostream& str, const cppr::boolean& vec) {
   int val = vec;

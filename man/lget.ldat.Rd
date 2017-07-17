@@ -24,4 +24,3 @@ data.frame using a logical or numeric index. The range given by \code{range}
 includes both end elements. So, a range of \code{c(1,3)} selects the first 
 three elements.
 }
-

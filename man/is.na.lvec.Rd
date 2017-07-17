@@ -16,4 +16,3 @@ Returns an \code{\link{lvec}} of the same length as the input.
 These are implementations for \code{\link{lvec}} object for their reguler
 R counterparts.
 }
-
