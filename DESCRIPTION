@@ -14,7 +14,9 @@ Imports:
     methods
 Suggests:
     testthat
-LinkingTo: lvec
+LinkingTo: 
+    lvec,
+    BH
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
