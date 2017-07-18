@@ -1,7 +1,9 @@
 Package: lvec.stats
 Title: Basic Statistical Functionality for lvec Objects
 Version: 0.0.1
-Authors@R: person("Jan", "van der Laan", email = "djvanderlaan@unrealizedtime.nl", role = c("aut", "cre"))
+Date: 2017-07-13
+Author: Jan van der Laan
+Maintainer: Jan van der Laan <djvanderlaan@unrealizedtime.nl>
 Description: Implements basic functionality, such as calculating means, sums,
     for lvec objects. Also implements data.frame-like objects storings its data
     in lvec objects. 
@@ -14,7 +16,9 @@ Imports:
     methods
 Suggests:
     testthat
-LinkingTo: lvec
+LinkingTo: 
+    lvec,
+    BH
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
