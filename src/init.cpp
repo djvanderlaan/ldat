@@ -9,6 +9,7 @@ extern "C" {
      CALLDEF(lmatch, 5),
      CALLDEF(partial_order, 2),
      CALLDEF(partial_sort, 2),
+     CALLDEF(order_ldat, 1),
      {NULL, NULL, 0}
   };
 
