@@ -27,7 +27,7 @@
 #' stopifnot(max(y[1:89]) <= min(y[91:100]))
 #' 
 #' @rdname partial_sort
-#' @useDynLib lvec.stats
+#' @useDynLib ldat
 #' @export
 partial_sort <- function(x, pivots, clone = TRUE) {
   if (clone) x = clone(x)
@@ -36,12 +36,12 @@ partial_sort <- function(x, pivots, clone = TRUE) {
   if (max(pivots) > length(x)) stop("Pivots larger than vector length found.")
   pivots <- sort(unique(pivots))
   requireNamespace("lvec")
-  .Call("partial_sort", x, pivots, PACKAGE = "lvec.stats")
+  .Call("partial_sort", x, pivots, PACKAGE = "ldat")
   x
 }
 
 #' @rdname partial_sort
-#' @useDynLib lvec.stats
+#' @useDynLib ldat
 #' @export
 partial_order <- function(x, pivots) {
   pivots <- round(as.numeric(pivots))
@@ -49,7 +49,7 @@ partial_order <- function(x, pivots) {
   if (max(pivots) > length(x)) stop("Pivots larger than vector length found.")
   pivots <- sort(unique(pivots))
   requireNamespace("lvec")
-  structure(.Call("partial_order", x, pivots, PACKAGE = "lvec.stats"), 
+  structure(.Call("partial_order", x, pivots, PACKAGE = "ldat"), 
     class = "lvec")
 }
 

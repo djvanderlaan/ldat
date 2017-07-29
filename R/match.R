@@ -25,13 +25,13 @@ match.default <- function(x, table, ...) {
 #' in \code{table} is found, \code{NA} is returned for the corresponding record.
 #'
 #' @rdname match
-#' @useDynLib lvec.stats
+#' @useDynLib ldat
 #' @export
 match.lvec <- function(x, table, na_incomparable = FALSE, ...) {
   if (!is_lvec(table)) table <- as_lvec(table)
   ox <- order(x)
   otable <- order(table)
-  structure(.Call("lmatch", PACKAGE = "lvec.stats", x, ox, table, otable, na_incomparable), 
+  structure(.Call("lmatch", PACKAGE = "ldat", x, ox, table, otable, na_incomparable), 
     class = "lvec")
 }
 

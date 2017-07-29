@@ -14,12 +14,12 @@
 #' x <- as_ldat(iris)
 #' o <- order(x[c("Sepal.Width", "Sepal.Length")])
 #'
-#' @useDynLib lvec.stats
+#' @useDynLib ldat
 #' @export
 order.ldat <- function(x, ...) {
   if (!is_ldat(x))
     stop("x should be of type ldat")
-  o <- .Call("order_ldat", x, PACKAGE = "lvec.stats")
+  o <- .Call("order_ldat", x, PACKAGE = "ldat")
   structure(o, class = "lvec")
 }
 

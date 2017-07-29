@@ -1,5 +1,5 @@
 
 .onUnload <- function (libpath) {
-  library.dynam.unload("lvec.stats", libpath)
+  library.dynam.unload("ldat", libpath)
 }
 

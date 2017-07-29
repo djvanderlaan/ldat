@@ -1,12 +1,15 @@
-Package: lvec.stats
-Title: Basic Statistical Functionality for lvec Objects
-Version: 0.0.1
-Date: 2017-07-13
+Package: ldat
+Title: Large Data Sets
+Version: 0.0.2
+Date: 2017-07-29
 Author: Jan van der Laan
 Maintainer: Jan van der Laan <djvanderlaan@unrealizedtime.nl>
-Description: Implements basic functionality, such as calculating means, sums,
-    for lvec objects. Also implements data.frame-like objects storings its data
-    in lvec objects. 
+Description: Tools for working with vectors and datasets that are too large
+    to keep in memory. Extends the basic functionality provided in the lvec
+    package. Provides basis statistical functionality of lvec objects, such
+    as arithmetic operations and calculating means and sums. Also implements
+    data.frame-like objects storings its data in lvec objects. 
+URL: https://github.com/djvanderlaan/ldat
 Depends:
     R (>= 3.3.2),
     lvec,

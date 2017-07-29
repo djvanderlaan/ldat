@@ -1,5 +1,5 @@
 ```{r,echo=FALSE,results='hide',message=FALSE}
-library(lvec.stats)
+library(ldat)
 ```
 
 Functions and Methods for Working with Out of Memory Vectors

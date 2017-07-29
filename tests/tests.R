@@ -1,5 +1,5 @@
-library(lvec.stats)
+library(ldat)
 library(testthat)
 
-test_check("lvec.stats")
+test_check("ldat")
 

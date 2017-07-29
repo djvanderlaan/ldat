@@ -1,12 +1,15 @@
 
-.PHONY: readme install test check build
+.PHONY: readme install test check build document
 
-all: readme build
+all: document readme build
 
 readme: README.md
 
 README.md: README.Rmd
 	R  --vanilla --slave -e "library(knitr); knit('README.Rmd')"
+
+document:
+	R --vanilla --slave -e "devtools::document()"
 
 install:
 	R --vanilla --slave -e "devtools::install()"
