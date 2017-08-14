@@ -6,7 +6,7 @@ print.ldat <- function(x, ...) {
    l <- nrow(x)
    cat("ldat with ", format(nrow(x), big.mark = ' '), " rows and ", 
      ncol(x), " columns:\n", sep = "")
-   if (l < 20) {
+   if (l < 25) {
      r <- as.data.frame(x)
      print(r)
    } else {
@@ -19,10 +19,12 @@ print.ldat <- function(x, ...) {
      r2 <- lapply(x, function(d) as_rvec(lget(d, range = range)))
      r2  <- as.data.frame(r2, stringsAsFactors = FALSE)
      rownames(r2) <- seq(range[1], range[2])
-     # Combine first and last set, insert row with :
-     r <- format(rbind(r1, NA, r2))
-     r[11, ] <- ":"
+     # Create row with dots
+     r <- rbind(r1, NA)
      rownames(r)[11] <- ":"
+     # Combine first and last set, insert row with :
+     r <- format(rbind(r, r2))
+     r[11, ] <- ":"
      # and print
      print(r)
    }
