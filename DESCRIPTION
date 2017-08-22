@@ -5,10 +5,10 @@ Date: 2017-07-29
 Author: Jan van der Laan
 Maintainer: Jan van der Laan <djvanderlaan@unrealizedtime.nl>
 Description: Tools for working with vectors and datasets that are too large
-    to keep in memory. Extends the basic functionality provided in the lvec
-    package. Provides basis statistical functionality of lvec objects, such
+    to keep in memory. Extends the basic functionality provided in the 'lvec'
+    package. Provides basis statistical functionality of 'lvec' objects, such
     as arithmetic operations and calculating means and sums. Also implements
-    data.frame-like objects storings its data in lvec objects. 
+    'data.frame'-like objects storing its data in 'lvec' objects. 
 URL: https://github.com/djvanderlaan/ldat
 Depends:
     R (>= 3.3.2),
