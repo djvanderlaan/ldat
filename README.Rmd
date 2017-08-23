@@ -98,7 +98,7 @@ rows and or columns will not be dropped, e.g. `drop = FALSE`). It will return a 
 `ldat` object.
 ```{r}
 dta[1:3, ]
-dta[dta$Sepal.Width > 5, ]
+dta[dta$Sepal.Width > 4, ]
 dta[1:5, 1:2]
 dta[1:5, "Sepal.Width"]
 ```
@@ -158,15 +158,70 @@ this case `months`
 m <- elementwise(x, months, abbreviate = TRUE)
 ```
 
+Another common pattern (of which the pattern above is a special case) is to 
+perform a calculation for each chunk using the result from the previous chunk, 
+and finally calculate the end result. 
+
+```{r}
+# Generate an lvec with random normal values
+y <- generate(2E6, rnorm)
+
+# Calculate men of x 
+state <- c(n = 0, sum = 0)
+chunks <- chunk(y)
+for (c in chunks) {
+  d <- slice_range(y, range = c, as_r = TRUE)
+  state[1] <- state[1] + length(d)
+  state[2] <- state[2] + sum(d)
+}
+state[2]/state[1]
+```
+
+For this pattern there is also the helper function `chunkwise`. This function 
+accepts an `lvec` or `ldat` object and three functions: an init function which
+initialises the state, an update function which updates the state using a new
+chunk of data, and a final function calculating the end result from the state. 
+The calculation of the mean can then be written as:
+
+```{r}
+chunkwise(y, init = function(x) c(0,0),
+  update = function(state, x) c(state[1] + length(x), state[2] + sum(x)),
+  final = function(state) state[2]/state[1])
+```
+
+When, looking at `ldat::mean.lvec`, you'll see that, except for some stuff with
+`na.rm`, this is also how that function is written. 
+
+Another function that is usefull when chunkswise processing `lvec` or `ldat` 
+objects, is the `append` function, which appends one object to another (
+as `c` for vectors, and `rbind` for data.frames). For `ldat` and `lvec` objects
+this method has a `clone` argument. When set to `FALSE` (for safety the default 
+is `TRUE`), the second vector is appended to the first, modifying the first
+argument. The advantage of that is that the first vector does not need to be
+copied. Append can be used to create a result for which the final size is not
+known at the beginning (if the size is known it is more efficient the initialise
+the result to the correct size directly at the beginning). 
+
+In the code below `x` is copied and therefore not modified:
+```{r}
+x <- as_lvec(1:10)
+z <- append(x, 100:1009)
+x
+```
+
+In the code below the new data is appended to `x` and `x` is modified. `x` and
+`z   now point to the same vector:
+```{r}
+x <- as_lvec(1:10)
+z <- append(x, 100:1009, clone = FALSE)
+x
+```
 
 
 
 ## Other functions for working with lvec objects ##
 
 
-- `chunkwise`:divide an lvec object into chunks and apply a function to each 
-  chunk. This can be used to calculate summary statistics.
-- `append`: append elements to an lvec object. 
 - `generate`: generate an lvec object filled with (random) values. 
 - `partial_sort`: ensure that an lvec is sorted in such a way, that values
   before a given element number are smaller than that element and values after
