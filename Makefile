@@ -20,6 +20,6 @@ test:
 check:
 	R --vanilla --slave -e "devtools::check()"
 
-build: install_headers
+build: 
 	R --vanilla --slave -e "devtools::build()"
 
