@@ -4,7 +4,7 @@
 \alias{generate}
 \title{Generate an lvec with (random) values}
 \usage{
-generate(n, fun, ..., chunk_size = 1e+06)
+generate(n, fun, ..., chunk_size = 5e+06)
 }
 \arguments{
 \item{n}{number of elements in result vector}
@@ -15,7 +15,9 @@ elements to generate as its first argument.}
 \item{...}{additional arguments are passed on to \code{fun}.}
 
 \item{chunk_size}{the size of the chunks of values with which to fill the
-resulting \code{\link{lvec}}.}
+resulting \code{\link{lvec}}. When not given it uses the value of the 
+option 'chunk_size' (see \code{\link{options}}) otherwise the default 
+value.}
 }
 \value{
 Returns an \code{\link{lvec}} with length \code{n}. The type is determined 

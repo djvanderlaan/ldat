@@ -1,6 +1,11 @@
 
 context("Math")
 
+
+options(chunk_size = 1E3)
+
+example_size <- 3E3
+
 test_math <- function(fun, x, ...) {
   a <- fun(x)
   b <- as_rvec(fun(as_lvec(x)))
@@ -9,8 +14,8 @@ test_math <- function(fun, x, ...) {
 
 test_that("numeric operators work", {
   set.seed(1)
-  x <- rnorm(2E6)
-  x[c(1.3E6, 1.4E6)] <- NA
+  x <- rnorm(example_size)
+  x[c(0.5*example_size, 0.7*example_size)] <- NA
 
   functions <- list(`abs`, `sign`, `floor`, `ceiling`, `trunc`,
     `round`, `signif`, `exp`, `expm1`, `cos`, `sin`, `tan`,

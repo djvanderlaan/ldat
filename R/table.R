@@ -17,13 +17,14 @@ table.default <- function(...) {
 #' 
 #' @param ... an object of type \code{\link{lvec}}
 #' @param useNA what to do with missing values. See \code{\link{table}}.
+#' 
+#' @details 
+#' The function processes the data in chunks. The size of the chunks can be 
+#' controlled using the option `chunk_size` (see \code{\link{chunk}}).
 #'  
 #' @seealso 
 #' This function duplicates the functionalty of the \code{\link{table}} 
 #' function.
-#' 
-#' The function processes the data in chunks. The size of the chunks can be 
-#' controlled using the option `chunk_size` (see \code{\link{chunk}}).
 #' 
 #' @importFrom stats aggregate
 #' @rdname table

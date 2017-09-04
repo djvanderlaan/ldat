@@ -1,9 +1,13 @@
 
 context("table")
 
+options(chunk_size = 1E3)
+
+example_size <- 3E3
+
 test_that("table works with lvecs", {
-  x <- generate(2E6, sample, x = 10, replace = TRUE)
-  y <- generate(2E6, sample, x = 3, replace = TRUE)
+  x <- generate(example_size, sample, x = 10, replace = TRUE)
+  y <- generate(example_size, sample, x = 3, replace = TRUE)
   t <- table.lvec(Var1 = x, Var2 = y, useNA = "no")
   t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(y))
   expect_that(t, equals(t_r))
@@ -14,13 +18,13 @@ test_that("table works with lvecs", {
   expect_that(t, equals(t_r))
   
   # With missing values
-  x <- generate(2E6, sample, x = c(10, NA), replace = TRUE)
+  x <- generate(example_size, sample, x = c(10, NA), replace = TRUE)
   t <- table.lvec(Var1 = x, Var2 = y, useNA="no")
   t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(y))
   expect_that(t, equals(t_r))
 
   # With missing values
-  x <- generate(2E6, sample, x = c(10, NA), replace = TRUE)
+  x <- generate(example_size, sample, x = c(10, NA), replace = TRUE)
   t <- table.lvec(Var1 = x, Var2 = y)
   t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(y), useNA = "ifany")
   expect_that(t, equals(t_r))
@@ -28,8 +32,8 @@ test_that("table works with lvecs", {
 
 
 test_that("table works with ldat objects", {
-  x <- ldat(x = generate(2E6, sample, x = 10, replace = TRUE),
-    y  = generate(2E6, sample, x = 3, replace = TRUE))
+  x <- ldat(x = generate(example_size, sample, x = 10, replace = TRUE),
+    y  = generate(example_size, sample, x = 3, replace = TRUE))
   t <- table(x, useNA = "no")
   t_r <- table(as.data.frame(x))
   expect_that(t, equals(t_r))
@@ -40,7 +44,7 @@ test_that("table works with ldat objects", {
   expect_that(t, equals(t_r))
   
   # With missing values
-  x$x <- generate(2E6, sample, x = c(10, NA), replace = TRUE)
+  x$x <- generate(example_size, sample, x = c(10, NA), replace = TRUE)
   t <- table(x, useNA="no")
   t_r <- table(as.data.frame(x))
   expect_that(t, equals(t_r))

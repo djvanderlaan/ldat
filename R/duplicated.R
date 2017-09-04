@@ -2,8 +2,6 @@
 #'
 #' @param x an object of type \code{\link{lvec}}.
 #' @param incomparables passed on to \code{link{duplicated}}. 
-#' @param chunk_size passed on to \code{\link{chunk}}. Unlike most routines 
-#'   that work with chunks, duplicated benefits from larger chunks.
 #' @param fromLast not supported.
 #' @param ... passed on to \code{\link{duplicated}}.
 #'
@@ -14,12 +12,15 @@
 #' \code{\link{duplicated}} in which \code{fromLast} determines which records
 #' are marked as duplicates.
 #' 
+#' The function processes the data in chunks. The size of the chunks can be 
+#' controlled using the option `chunk_size` (see \code{\link{chunk}}).
+#' 
 #' @importFrom utils head tail 
 #' @rdname duplicated
 #' @export
-duplicated.lvec <- function(x, incomparables = FALSE, chunk_size = 5E6, fromLast = FALSE, ...) {
+duplicated.lvec <- function(x, incomparables = FALSE, fromLast = FALSE, ...) {
   if (fromLast != FALSE) stop("fromLast is not supported")
-  chunks <- chunk(x, chunk_size = chunk_size)
+  chunks <- chunk(x)
   # Calculate the order of the vector; we only need to sort between the
   # chunks; the chunks themselves do not need to be sorted
   pivots <- sapply(chunks, tail, n = 1)
@@ -47,8 +48,8 @@ duplicated.lvec <- function(x, incomparables = FALSE, chunk_size = 5E6, fromLast
 
 #' @rdname duplicated
 #' @export
-unique.lvec <- function(x, incomparables = FALSE, chunk_size = 5E6, ...) {
-  d <- duplicated(x, incomparables = incomparables, chunk_size = chunk_size, ...)
+unique.lvec <- function(x, incomparables = FALSE, ...) {
+  d <- duplicated(x, incomparables = incomparables, ...)
   lget(x, !d)
 }
 

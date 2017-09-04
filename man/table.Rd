@@ -2,21 +2,24 @@
 % Please edit documentation in R/table.R
 \name{table.lvec}
 \alias{table.lvec}
+\alias{table.ldat}
 \title{Create cross tables from lvec objects}
 \usage{
-\method{table}{lvec}(..., useNA = c("ifany", "no", "always"),
-  chunk_size = 1e+06)
+\method{table}{lvec}(..., useNA = c("ifany", "no", "always"))
+
+\method{table}{ldat}(..., useNA = c("ifany", "no", "always"))
 }
 \arguments{
 \item{...}{an object of type \code{\link{lvec}}}
 
 \item{useNA}{what to do with missing values. See \code{\link{table}}.}
-
-\item{chunk_size}{an integer specifying the size of the chunks with which the
-\code{\link{lvec}} objects are processed.}
 }
 \description{
 Create cross tables from lvec objects
+}
+\details{
+The function processes the data in chunks. The size of the chunks can be 
+controlled using the option `chunk_size` (see \code{\link{chunk}}).
 }
 \seealso{
 This function duplicates the functionalty of the \code{\link{table}} 

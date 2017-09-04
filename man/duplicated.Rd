@@ -5,18 +5,14 @@
 \alias{unique.lvec}
 \title{Find duplicates in a vector}
 \usage{
-\method{duplicated}{lvec}(x, incomparables = FALSE, chunk_size = 5e+06,
-  fromLast = FALSE, ...)
+\method{duplicated}{lvec}(x, incomparables = FALSE, fromLast = FALSE, ...)
 
-\method{unique}{lvec}(x, incomparables = FALSE, chunk_size = 5e+06, ...)
+\method{unique}{lvec}(x, incomparables = FALSE, ...)
 }
 \arguments{
 \item{x}{an object of type \code{\link{lvec}}.}
 
 \item{incomparables}{passed on to \code{link{duplicated}}.}
-
-\item{chunk_size}{passed on to \code{\link{chunk}}. Unlike most routines 
-that work with chunks, duplicated benefits from larger chunks.}
 
 \item{fromLast}{not supported.}
 
@@ -31,4 +27,7 @@ sorted. Since a non stable sort is used, which of the duplicates is marked
 as duplicate is undefined. This is unlike the regular 
 \code{\link{duplicated}} in which \code{fromLast} determines which records
 are marked as duplicates.
+
+The function processes the data in chunks. The size of the chunks can be 
+controlled using the option `chunk_size` (see \code{\link{chunk}}).
 }

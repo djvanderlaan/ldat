@@ -39,6 +39,7 @@ generate <- function(n, fun, ..., chunk_size = 5E6) {
     } else {
       lset(result, range = c(start, stop), values = sample)
     }
+    if ((i %% 100) == 0) gc()
     start <- stop + 1
   }
   result
