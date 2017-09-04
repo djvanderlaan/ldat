@@ -25,6 +25,7 @@ table.default <- function(...) {
 #' function.
 #' 
 #' @importFrom stats aggregate
+#' @rdname table
 #' @export
 table.lvec <- function(..., useNA = c("ifany", "no", "always"), chunk_size = 1E6) {
   # Process and check input
@@ -59,11 +60,22 @@ table.lvec <- function(..., useNA = c("ifany", "no", "always"), chunk_size = 1E6
   #tab
 }
 
+
+#' @rdname table
+#' @export
+table.ldat <- function(..., useNA = c("ifany", "no", "always"), 
+    chunk_size = 1E6) {
+  useNA <- match.arg(useNA)
+  d <- list(...)[[1]]
+  do.call(table, c(unclass(d), useNA = useNA, chunk_size = chunk_size))
+}
+
+
 df_to_matrix <- function(df) {
   indices <- df[seq_len(ncol(df)-1)]
   
   unique_indices <- lapply(indices, unique)
-  tab <- do.call(expand.grid, rev(unique_indices))
+  tab <- do.call(expand.grid, unique_indices)
   df <- merge(tab, df, all.x = TRUE, sort = FALSE)
   
   # as.numeric needed to remove names from dim

@@ -1,27 +1,52 @@
 
 context("table")
 
-test_that("table works", {
+test_that("table works with lvecs", {
   x <- generate(2E6, sample, x = 10, replace = TRUE)
-  t <- table.lvec(Var1 = x, Var2 = x, useNA = "no")
-  t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(x))
+  y <- generate(2E6, sample, x = 3, replace = TRUE)
+  t <- table.lvec(Var1 = x, Var2 = y, useNA = "no")
+  t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(y))
   expect_that(t, equals(t_r))
   
   # With useNA = "always
-  t <- table.lvec(Var1 = x, Var2 = x, useNA = "always")
-  t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(x), useNA = "always")
+  t <- table.lvec(Var1 = x, Var2 = y, useNA = "always")
+  t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(y), useNA = "always")
   expect_that(t, equals(t_r))
   
   # With missing values
   x <- generate(2E6, sample, x = c(10, NA), replace = TRUE)
-  t <- table.lvec(Var1 = x, Var2 = x, useNA="no")
-  t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(x))
+  t <- table.lvec(Var1 = x, Var2 = y, useNA="no")
+  t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(y))
   expect_that(t, equals(t_r))
 
   # With missing values
   x <- generate(2E6, sample, x = c(10, NA), replace = TRUE)
-  t <- table.lvec(Var1 = x, Var2 = x)
-  t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(x), useNA = "ifany")
+  t <- table.lvec(Var1 = x, Var2 = y)
+  t_r <- table(Var1 = as_rvec(x), Var2 = as_rvec(y), useNA = "ifany")
+  expect_that(t, equals(t_r))
+})
+
+
+test_that("table works with ldat objects", {
+  x <- ldat(x = generate(2E6, sample, x = 10, replace = TRUE),
+    y  = generate(2E6, sample, x = 3, replace = TRUE))
+  t <- table(x, useNA = "no")
+  t_r <- table(as.data.frame(x))
   expect_that(t, equals(t_r))
   
+  # With useNA = "always
+  t <- table(x, useNA = "always")
+  t_r <- table(as.data.frame(x), useNA = "always")
+  expect_that(t, equals(t_r))
+  
+  # With missing values
+  x$x <- generate(2E6, sample, x = c(10, NA), replace = TRUE)
+  t <- table(x, useNA="no")
+  t_r <- table(as.data.frame(x))
+  expect_that(t, equals(t_r))
+
+  # With missing values
+  t <- table(x)
+  t_r <- table(as.data.frame(x), useNA = "ifany")
+  expect_that(t, equals(t_r))
 })
