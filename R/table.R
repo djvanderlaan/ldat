@@ -17,17 +17,18 @@ table.default <- function(...) {
 #' 
 #' @param ... an object of type \code{\link{lvec}}
 #' @param useNA what to do with missing values. See \code{\link{table}}.
-#' @param chunk_size an integer specifying the size of the chunks with which the
-#'  \code{\link{lvec}} objects are processed.
 #'  
 #' @seealso 
 #' This function duplicates the functionalty of the \code{\link{table}} 
 #' function.
 #' 
+#' The function processes the data in chunks. The size of the chunks can be 
+#' controlled using the option `chunk_size` (see \code{\link{chunk}}).
+#' 
 #' @importFrom stats aggregate
 #' @rdname table
 #' @export
-table.lvec <- function(..., useNA = c("ifany", "no", "always"), chunk_size = 1E6) {
+table.lvec <- function(..., useNA = c("ifany", "no", "always")) {
   # Process and check input
   columns <- list(...)
   if (length(columns) < 1) stop("No vectors given.")
@@ -37,7 +38,7 @@ table.lvec <- function(..., useNA = c("ifany", "no", "always"), chunk_size = 1E6
   if (!all(islvec)) stop("Not all vectors are of type lvec.")
   useNA <- match.arg(useNA)
   # Ready to go
-  chunks <- chunk(columns[[1]], chunk_size = chunk_size)
+  chunks <- chunk(columns[[1]])
   tab <- vector("list", length(chunks))
   i <- 1
   for (c in chunks) {
@@ -52,7 +53,6 @@ table.lvec <- function(..., useNA = c("ifany", "no", "always"), chunk_size = 1E6
   # Convert table columns to factor: to ensure that NA's are counted
   for (col in seq_len(ncol(tab)-1)) 
     tab[[col]] <- factor(tab[[col]], exclude = NULL)
-  
   tab <- aggregate(tab[ncol(tab)], tab[seq_len(ncol(tab)-1)], sum, 
     drop = FALSE, simplify = TRUE)
   as.table(df_to_matrix(tab))
@@ -63,11 +63,10 @@ table.lvec <- function(..., useNA = c("ifany", "no", "always"), chunk_size = 1E6
 
 #' @rdname table
 #' @export
-table.ldat <- function(..., useNA = c("ifany", "no", "always"), 
-    chunk_size = 1E6) {
+table.ldat <- function(..., useNA = c("ifany", "no", "always")) {
   useNA <- match.arg(useNA)
   d <- list(...)[[1]]
-  do.call(table, c(unclass(d), useNA = useNA, chunk_size = chunk_size))
+  do.call(table, c(unclass(d), useNA = useNA))
 }
 
 
