@@ -7,7 +7,9 @@
 #'   elements to generate as its first argument. 
 #' @param ... additional arguments are passed on to \code{fun}.
 #' @param chunk_size the size of the chunks of values with which to fill the
-#'   resulting \code{\link{lvec}}. 
+#'   resulting \code{\link{lvec}}. When not given it uses the value of the 
+#'   option 'chunk_size' (see \code{\link{options}}) otherwise the default 
+#'   value.
 #'
 #' @return
 #' Returns an \code{\link{lvec}} with length \code{n}. The type is determined 
@@ -21,7 +23,8 @@
 #' y <- generate(2E6, sample, x = letters, replace = TRUE)
 #' 
 #' @export
-generate <- function(n, fun, ..., chunk_size = 1E6) {
+generate <- function(n, fun, ..., chunk_size = 5E6) {
+  if (missing(chunk_size)) chunk_size <- getOption("chunk_size", chunk_size)
   stopifnot(chunk_size >= 1)
   nchunks <- ceiling(n / chunk_size)
   start <- 1
@@ -40,4 +43,3 @@ generate <- function(n, fun, ..., chunk_size = 1E6) {
   }
   result
 }
-
