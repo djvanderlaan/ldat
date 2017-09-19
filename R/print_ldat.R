@@ -2,10 +2,11 @@
 
 
 #' @export
-print.ldat <- function(x, ...) {
+print.ldat <- function(x, ..., messages = character(0)) {
    l <- nrow(x)
    cat("ldat with ", format(nrow(x), big.mark = ' '), " rows and ", 
-     ncol(x), " columns:\n", sep = "")
+     ncol(x), " columns\n", sep = "")
+   for (i in seq_along(messages)) cat(messages[i], "\n")
    if (l < 25) {
      r <- as.data.frame(x)
      print(r)
