@@ -1,7 +1,7 @@
 Package: ldat
 Title: Large Data Sets
-Version: 0.0.3
-Date: 2017-09-07
+Version: 0.0.4
+Date: 2017-10-24
 Author: Jan van der Laan
 Maintainer: Jan van der Laan <djvanderlaan@unrealizedtime.nl>
 Description: Tools for working with vectors and data sets that are too large
