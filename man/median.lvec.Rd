@@ -19,3 +19,4 @@ Calculate the median of an lvec
 \seealso{
 For more details see \code{\link{quantile.lvec}}.
 }
+

@@ -2,8 +2,8 @@
 % Please edit documentation in R/append.R
 \name{append}
 \alias{append}
-\alias{append.lvec}
 \alias{append.ldat}
+\alias{append.lvec}
 \title{Append a vector to an lvec}
 \usage{
 append(x, y, ...)
@@ -30,3 +30,4 @@ Returns an lvec combining both \code{x} and \code{y}. When \code{x} is
 \description{
 Append a vector to an lvec
 }
+

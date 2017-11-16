@@ -23,3 +23,4 @@ The ranges have a maximum length.
 The default chunk size can be changes by setting the option 'chunk_size', 
 (`options(chunk_size = <new default chunk size>)`).
 }
+

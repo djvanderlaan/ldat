@@ -24,3 +24,4 @@ x <- as_ldat(iris)
 sort(x)
 
 }
+

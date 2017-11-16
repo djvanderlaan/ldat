@@ -23,7 +23,7 @@ table.default <- function(...) {
 #' controlled using the option `chunk_size` (see \code{\link{chunk}}).
 #'  
 #' @seealso 
-#' This function duplicates the functionalty of the \code{\link{table}} 
+#' This function duplicates the functionality of the \code{\link{table}} 
 #' function.
 #' 
 #' @importFrom stats aggregate

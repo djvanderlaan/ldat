@@ -3,12 +3,12 @@
 \name{all.lvec}
 \alias{all.lvec}
 \alias{any.lvec}
-\alias{prod.lvec}
-\alias{sum.lvec}
-\alias{mean.lvec}
 \alias{max.lvec}
+\alias{mean.lvec}
 \alias{min.lvec}
+\alias{prod.lvec}
 \alias{range.lvec}
+\alias{sum.lvec}
 \title{Basic summary functions for lvec objects}
 \usage{
 \method{all}{lvec}(x, ..., na.rm = FALSE)
@@ -37,3 +37,4 @@
 \description{
 These functions should behave as their regular counterparts.
 }
+

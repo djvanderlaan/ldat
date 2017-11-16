@@ -1,5 +1,5 @@
 
-#' Read elemements from an ldat object
+#' Read elements from an ldat object
 #'
 #' @param x the \code{\link{ldat}} to read from
 #' @param ... passed on to \code{\link{lget.lvec}}.

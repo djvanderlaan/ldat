@@ -23,3 +23,4 @@ Math is group generic implementing the following functions:
 ‘"|"’, ‘"!"’ ‘"=="’, ‘"!="’, ‘"<"’, ‘"<="’, ‘">="’, ‘">"’.
 For more information see \code{\link{Ops}}.
 }
+

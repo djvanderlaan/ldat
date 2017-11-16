@@ -3,14 +3,14 @@
 #'
 #' @param x an object of type \code{\link{ldat}}
 #' @param index a numeric of logical vector with indices at which 
-#'   the values shold be set. 
+#'   the values should be set. 
 #' @param values a vector with new values.
 #' @param range a numeric vector of length 2 specifying a range of elements 
 #'   to select. Specify either \code{index} or \code{range}. 
 #' @param ... ignored.
 #'
 #' @details
-#' When values is a vector the values are assigned to each colunmn in
+#' When values is a vector the values are assigned to each column in
 #' \code{x}. Otherwise, vectors is assumed to be a list or data.frame
 #' of the same length as \code{x}. Each element of \code{values} is 
 #' assigned to the corresponding element of \code{x}.

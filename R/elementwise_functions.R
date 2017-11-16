@@ -1,7 +1,7 @@
 
 #' Simple elementwise functions
 #'
-#' These are implementations for \code{\link{lvec}} object for their reguler
+#' These are implementations for \code{\link{lvec}} object for their regular
 #' R counterparts.
 #' 
 #' @param x an object f type \code{\link{lvec}}

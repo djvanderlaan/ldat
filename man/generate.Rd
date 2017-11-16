@@ -34,3 +34,4 @@ x <- generate(2E6, rnorm, sd = 10)
 y <- generate(2E6, sample, x = letters, replace = TRUE)
 
 }
+

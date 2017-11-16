@@ -16,7 +16,7 @@
 
 \item{na.rm}{remove missing values before calculating the quantiles}
 
-\item{true_probs}{add an attribute with the probabilities at the choosen 
+\item{true_probs}{add an attribute with the probabilities at the chosen 
 pivots.}
 
 \item{...}{ignored.}
@@ -25,11 +25,12 @@ pivots.}
 Calculate the quantiles of an lvec
 }
 \details{
-This function uses a more simple method than that usd by the regular 
+This function uses a more simple method than that used by the regular 
 \code{\link{quantile}} method. It sorts the vector (using 
 \code{\link{partial_sort}} for speed) and selects elements from \code{x} 
-that correspond to the given probabilites. For example, when \code{x} has 
+that correspond to the given probabilities. For example, when \code{x} has 
 length of 11 and \code{prob} equal to 0.5, it selects the 6th element from 
 the (partially) sorted \code{x}. For large enough vectors this is a 
 reasonable approach.
 }
+

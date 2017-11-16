@@ -17,3 +17,4 @@ Clone an ldat object
 \details{
 Clones each of the vectors in the \code{\link{ldat}} object.
 }
+

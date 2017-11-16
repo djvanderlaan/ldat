@@ -13,6 +13,7 @@
 Returns an \code{\link{lvec}} of the same length as the input.
 }
 \description{
-These are implementations for \code{\link{lvec}} object for their reguler
+These are implementations for \code{\link{lvec}} object for their regular
 R counterparts.
 }
+

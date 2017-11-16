@@ -5,7 +5,7 @@
 #'
 #' This function creates an \code{ldat} object, which behaves similar to a 
 #' \code{data.frame} except that its columns are \code{\link{lvec}}. This 
-#' allows and \code{ldat} to have an arbritary large number of rows without
+#' allows and \code{ldat} to have an arbitrary large number of rows without
 #' running into memory problems. 
 #' 
 #' @param ... these arguments are of either the form `tag = value' or `value'. 

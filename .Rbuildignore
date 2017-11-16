@@ -3,6 +3,7 @@
 README.md
 README.Rmd
 Makefile
+cran-comments.md
 ^.*\.Rproj$
 ^\.Rproj\.user$
 \.o$

@@ -10,7 +10,7 @@
 \item{x}{an object of type \code{\link{ldat}}}
 
 \item{index}{a numeric of logical vector with indices at which 
-the values shold be set.}
+the values should be set.}
 
 \item{values}{a vector with new values.}
 
@@ -23,8 +23,9 @@ to select. Specify either \code{index} or \code{range}.}
 Set values is an ldat object
 }
 \details{
-When values is a vector the values are assigned to each colunmn in
+When values is a vector the values are assigned to each column in
 \code{x}. Otherwise, vectors is assumed to be a list or data.frame
 of the same length as \code{x}. Each element of \code{values} is 
 assigned to the corresponding element of \code{x}.
 }
+
