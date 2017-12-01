@@ -80,10 +80,10 @@ class porder_visitor : public ldat::lvec_visitor {
 
 extern "C" {
   SEXP partial_order(SEXP rv, SEXP rpivots) {
-    CPPRTRY
+    BEGIN_RCPP
     ldat::vec* v = sexp_to_vec(rv);
     // convert R vector of pivots to std::vector
-    cppr::rvec<cppr::numeric> pivots_r{rpivots};
+    Rcpp::NumericVector pivots_r(rpivots);
     std::vector<ldat::vec::vecsize> pivots;
     for (R_xlen_t i = 0; i < pivots_r.length(); ++i) {
       if (cppr::is_na(pivots_r[i]))
@@ -94,7 +94,7 @@ extern "C" {
     porder_visitor visitor(pivots);
     v->visit(&visitor);
     return vec_to_sexp(visitor.result());
-    CPPRCATCH
+    END_RCPP
   }
 }
 

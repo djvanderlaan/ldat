@@ -28,6 +28,7 @@
 #' 
 #' @rdname partial_sort
 #' @useDynLib ldat
+#' @importFrom Rcpp sourceCpp
 #' @export
 partial_sort <- function(x, pivots, clone = TRUE) {
   if (clone) x = clone(x)

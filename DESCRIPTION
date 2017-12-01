@@ -20,7 +20,8 @@ Imports:
 Suggests:
     testthat
 LinkingTo: lvec,
-    BH
+    BH,
+    Rcpp
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

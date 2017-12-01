@@ -1,5 +1,5 @@
 
-.PHONY: readme install test check build document
+.PHONY: readme install test check build document load_all
 
 all: document readme build
 
@@ -11,10 +11,13 @@ README.md: README.Rmd
 document:
 	R --vanilla --slave -e "devtools::document()"
 
+load_all: 
+	R --vanilla --slave -e "devtools::load_all()"
+
 install:
 	R --vanilla --slave -e "devtools::install()"
 
-test:
+test: load_all
 	R --vanilla --slave -e "devtools::test()"
 
 check:

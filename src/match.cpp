@@ -110,7 +110,7 @@ class match_visitor : public ldat::lvec_visitor {
 
 extern "C" {
   SEXP lmatch(SEXP rv, SEXP rvo, SEXP rtab, SEXP rtabo, SEXP rna_incomp) {
-    CPPRTRY
+    BEGIN_RCPP
     ldat::vec* v = sexp_to_vec(rv);
     ldat::vec* vo = sexp_to_vec(rvo);
     if (v->size() != vo->size()) 
@@ -120,14 +120,12 @@ extern "C" {
     ldat::vec* tabo = sexp_to_vec(rtabo);
     if (tab->size() != tabo->size()) 
       throw std::runtime_error("Lengths of table and order of table are unequal.");
-    cppr::rvec<cppr::logical> na_incomp{rna_incomp};
-    if (na_incomp.length() != 1) 
-      throw std::runtime_error("na_incomparable should be a logical vector of length 1.");
+    bool na_incomp = Rcpp::as<bool>(rna_incomp);
     // call visitor
-    match_visitor visitor(vo, tab, tabo, na_incomp[0]);
+    match_visitor visitor(vo, tab, tabo, na_incomp);
     v->visit(&visitor);
     return vec_to_sexp(visitor.result());
-    CPPRCATCH
+    END_RCPP
   }
 }
 

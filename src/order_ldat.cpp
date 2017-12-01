@@ -90,7 +90,7 @@ class ldat_compare {
 
 extern "C" {
   SEXP order_ldat(SEXP rveclist) {
-    CPPRTRY
+    BEGIN_RCPP
     // create vector with lvecs on which to sort
     std::vector<ldat::vec*> vecs;
     for (int i = 0; i < LENGTH(rveclist); ++i) {
@@ -107,7 +107,7 @@ extern "C" {
     // we use the values pointed to by the order vector
     std::sort(result->begin(), result->end(), ldat_compare(vecs));
     return vec_to_sexp(result.release());
-    CPPRCATCH
+    END_RCPP
   }
 }
 
