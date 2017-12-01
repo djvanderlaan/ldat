@@ -2,15 +2,7 @@
 #include <algorithm>
 #include <cstring>
 #include <vector>
-#include <iostream>
-#include <iomanip>
 #include "r_export.h"
-
-std::ostream& operator<<(std::ostream& str, const cppr::boolean& vec) {
-  int val = vec;
-  str << "bool: " << val;
-  return str;
-}
 
 class match_visitor : public ldat::lvec_visitor {
   public:
@@ -108,24 +100,22 @@ class match_visitor : public ldat::lvec_visitor {
     bool na_incomparable_;
 };
 
-extern "C" {
-  SEXP lmatch(SEXP rv, SEXP rvo, SEXP rtab, SEXP rtabo, SEXP rna_incomp) {
-    BEGIN_RCPP
-    ldat::vec* v = sexp_to_vec(rv);
-    ldat::vec* vo = sexp_to_vec(rvo);
-    if (v->size() != vo->size()) 
-      throw std::runtime_error("Lengths of vector and order of vector are unequal.");
-    // check and convert table
-    ldat::vec* tab = sexp_to_vec(rtab);
-    ldat::vec* tabo = sexp_to_vec(rtabo);
-    if (tab->size() != tabo->size()) 
-      throw std::runtime_error("Lengths of table and order of table are unequal.");
-    bool na_incomp = Rcpp::as<bool>(rna_incomp);
-    // call visitor
-    match_visitor visitor(vo, tab, tabo, na_incomp);
-    v->visit(&visitor);
-    return vec_to_sexp(visitor.result());
-    END_RCPP
-  }
+RcppExport SEXP lmatch(SEXP rv, SEXP rvo, SEXP rtab, SEXP rtabo, SEXP rna_incomp) {
+  BEGIN_RCPP
+  Rcpp::XPtr<ldat::vec> v(rv);
+  Rcpp::XPtr<ldat::vec> vo(rvo);
+  if (v->size() != vo->size()) 
+    throw Rcpp::exception("Lengths of vector and order of vector are unequal.");
+  // check and convert table
+  Rcpp::XPtr<ldat::vec> tab(rtab);
+  Rcpp::XPtr<ldat::vec> tabo(rtabo);
+  if (tab->size() != tabo->size()) 
+    throw Rcpp::exception("Lengths of table and order of table are unequal.");
+  bool na_incomp = Rcpp::as<bool>(rna_incomp);
+  // call visitor
+  match_visitor visitor(vo, tab, tabo, na_incomp);
+  v->visit(&visitor);
+  return Rcpp::XPtr<ldat::vec>(visitor.result(), true);
+  END_RCPP
 }
 
