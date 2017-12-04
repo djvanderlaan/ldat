@@ -13,7 +13,8 @@ URL: https://github.com/djvanderlaan/ldat
 Depends:
     R (>= 3.3.2),
     lvec,
-    stats
+    stats,
+    Rcpp
 Imports:
     utils,
     methods
