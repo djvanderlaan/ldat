@@ -26,3 +26,5 @@ check:
 build: 
 	R --vanilla --slave -e "devtools::build()"
 
+clean:
+	rm -f src/*.o src/*.so
