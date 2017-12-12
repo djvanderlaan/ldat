@@ -19,7 +19,8 @@
 order.ldat <- function(x, ...) {
   if (!is_ldat(x))
     stop("x should be of type ldat")
-  o <- .Call("order_ldat", x, PACKAGE = "ldat")
+  #o <- .Call("order_ldat", x, PACKAGE = "ldat")
+  o <- order_ldat_cpp(x)
   structure(o, class = "lvec")
 }
 

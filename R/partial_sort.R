@@ -37,7 +37,8 @@ partial_sort <- function(x, pivots, clone = TRUE) {
   if (max(pivots) > length(x)) stop("Pivots larger than vector length found.")
   pivots <- sort(unique(pivots))
   requireNamespace("lvec")
-  .Call("partial_sort", x, pivots, PACKAGE = "ldat")
+  #.Call("partial_sort", x, pivots, PACKAGE = "ldat")
+  partial_sort_cpp(x, pivots)
   x
 }
 
@@ -50,8 +51,8 @@ partial_order <- function(x, pivots) {
   if (max(pivots) > length(x)) stop("Pivots larger than vector length found.")
   pivots <- sort(unique(pivots))
   requireNamespace("lvec")
-  structure(.Call("partial_order", x, pivots, PACKAGE = "ldat"), 
-    class = "lvec")
+  #structure(.Call("partial_order", x, pivots, PACKAGE = "ldat"), 
+  structure(partial_order_cpp(x, pivots), class = "lvec")
 }
 
 

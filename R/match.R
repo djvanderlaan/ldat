@@ -31,7 +31,9 @@ match.lvec <- function(x, table, na_incomparable = FALSE, ...) {
   if (!is_lvec(table)) table <- as_lvec(table)
   ox <- order(x)
   otable <- order(table)
-  structure(.Call("lmatch", PACKAGE = "ldat", x, ox, table, otable, na_incomparable), 
+  structure(lmatch_cpp(x, ox, table, otable, na_incomparable), 
     class = "lvec")
+  #structure(.Call("lmatch", PACKAGE = "ldat", x, ox, table, otable, na_incomparable), 
+    #class = "lvec")
 }
 
