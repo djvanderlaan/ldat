@@ -1,5 +1,4 @@
 #include "partial_order_visitor.h"
-//#include "r_export.h"
 
 // [[Rcpp::export]]
 SEXP partial_order_cpp(SEXP rv, SEXP rpivots) {

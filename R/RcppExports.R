@@ -5,8 +5,8 @@ lmatch_cpp <- function(rv, rvo, rtab, rtabo, rna_incomp) {
     .Call('_ldat_lmatch_cpp', PACKAGE = 'ldat', rv, rvo, rtab, rtabo, rna_incomp)
 }
 
-order_ldat_cpp <- function(rveclist) {
-    .Call('_ldat_order_ldat_cpp', PACKAGE = 'ldat', rveclist)
+order_ldat_cpp <- function(veclist) {
+    .Call('_ldat_order_ldat_cpp', PACKAGE = 'ldat', veclist)
 }
 
 partial_order_cpp <- function(rv, rpivots) {

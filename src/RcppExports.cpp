@@ -21,13 +21,13 @@ BEGIN_RCPP
 END_RCPP
 }
 // order_ldat_cpp
-SEXP order_ldat_cpp(SEXP rveclist);
-RcppExport SEXP _ldat_order_ldat_cpp(SEXP rveclistSEXP) {
+SEXP order_ldat_cpp(Rcpp::List veclist);
+RcppExport SEXP _ldat_order_ldat_cpp(SEXP veclistSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< SEXP >::type rveclist(rveclistSEXP);
-    rcpp_result_gen = Rcpp::wrap(order_ldat_cpp(rveclist));
+    Rcpp::traits::input_parameter< Rcpp::List >::type veclist(veclistSEXP);
+    rcpp_result_gen = Rcpp::wrap(order_ldat_cpp(veclist));
     return rcpp_result_gen;
 END_RCPP
 }

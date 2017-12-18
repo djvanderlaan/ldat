@@ -3,7 +3,6 @@
 
 #include <lvec_interface.h>
 #include <algorithm>
-#include <cstring>
 #include <vector>
 
 class compare_visitor : public ldat::lvec_visitor {

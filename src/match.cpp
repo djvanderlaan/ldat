@@ -1,6 +1,4 @@
-
 #include "match_visitor.h"
-//#include "r_export.h"
 
 // [[Rcpp::export]]
 SEXP lmatch_cpp(SEXP rv, SEXP rvo, SEXP rtab, SEXP rtabo, SEXP rna_incomp) {

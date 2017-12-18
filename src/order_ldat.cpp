@@ -1,14 +1,13 @@
 #include "compare_visitor.h"
-//#include "r_export.h"
 
 // [[Rcpp::export]]
-SEXP order_ldat_cpp(SEXP rveclist) {
+SEXP order_ldat_cpp(Rcpp::List veclist) {
   // create vector with lvecs on which to sort
   std::vector<ldat::vec*> vecs;
-  // TODO: use Rcpp list
-  for (int i = 0; i < LENGTH(rveclist); ++i) {
-    SEXP v = VECTOR_ELT(rveclist, i);
-    vecs.push_back(Rcpp::XPtr<ldat::vec>(v));
+  for (int i = 0; i < veclist.length(); ++i) {
+    vecs.push_back(
+      Rcpp::XPtr<ldat::vec>(static_cast<SEXP>(veclist[i]))
+    );
   }
   if (vecs.size() < 1) 
     throw Rcpp::exception("No columns which to order.");

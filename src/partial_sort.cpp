@@ -1,5 +1,4 @@
 #include "partial_sort_visitor.h"
-//#include "r_export.h"
 
 // [[Rcpp::export]]
 SEXP partial_sort_cpp(SEXP rv, SEXP rpivots) {
