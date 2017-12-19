@@ -16,8 +16,8 @@ class match_visitor : public ldat::lvec_visitor {
     class compare_lt {
       public:
         bool operator()(const T& lhs, const T& rhs) {
-          if (cppr::is_nan(lhs)) return false;
-          if (cppr::is_nan(rhs)) return true;
+          if (ldat::is_nan(lhs)) return false;
+          if (ldat::is_nan(rhs)) return true;
           return lhs < rhs;
         }
     };
@@ -29,10 +29,10 @@ class match_visitor : public ldat::lvec_visitor {
           // we need the manually handle missing values, because for double na's
           // are coded as nan and therefore regular comparison doesn't work.
           if (na_incomparable) {
-            if (cppr::is_nan(lhs) || cppr::is_nan(rhs)) return false;
+            if (ldat::is_nan(lhs) || ldat::is_nan(rhs)) return false;
           } else {
-            if (cppr::is_nan(lhs) && cppr::is_nan(rhs)) return true;
-            if (cppr::is_nan(lhs) || cppr::is_nan(rhs)) return false;
+            if (ldat::is_nan(lhs) && ldat::is_nan(rhs)) return true;
+            if (ldat::is_nan(lhs) || ldat::is_nan(rhs)) return false;
           }
           return lhs == rhs;
         }
@@ -50,20 +50,20 @@ class match_visitor : public ldat::lvec_visitor {
       
         ldat::vec::vecsize j = 0;
         ldat::vec::vecsize index_tab = order_tab_->get_of_type(j, double())-1.0;
-        T el_tab = tab_->get_of_type(index_tab, cppr::base_type(T()));
+        T el_tab = tab_->get_of_type(index_tab, ldat::base_type(T()));
         for (ldat::vec::vecsize i = 0; i != size; ++i) {
           ldat::vec::vecsize index_vec = order_->get_of_type(i, double())-1.0;
           T el = vec.get(index_vec);
           while (less_than(el_tab, el) && j < (tab_->size()-1)) {
             ++j;
             index_tab = order_tab_->get_of_type(j, double())-1.0;
-            el_tab = tab_->get_of_type(index_tab, cppr::base_type(T()));
+            el_tab = tab_->get_of_type(index_tab, ldat::base_type(T()));
   
           }
           if (equal(el, el_tab, na_incomparable_)) {
             result->set(index_vec, index_tab + 1.0);
           } else {
-            result->set(index_vec, cppr::na<double>());
+            result->set(index_vec, ldat::na<double>());
           }
         }
       }
@@ -81,7 +81,7 @@ class match_visitor : public ldat::lvec_visitor {
       return visit_template(vec);
     }
 
-    void visit(ldat::lvec<cppr::boolean>& vec) {
+    void visit(ldat::lvec<ldat::boolean>& vec) {
       return visit_template(vec);
     }
 

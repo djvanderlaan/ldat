@@ -18,8 +18,8 @@ class psort_visitor : public ldat::lvec_visitor {
     class compare {
       public:
         bool operator()(const T& lhs, const T& rhs) {
-          if (cppr::is_nan(lhs)) return false;
-          if (cppr::is_nan(rhs)) return true;
+          if (ldat::is_nan(lhs)) return false;
+          if (ldat::is_nan(rhs)) return true;
           return lhs < rhs;
         }
     };
@@ -44,7 +44,7 @@ class psort_visitor : public ldat::lvec_visitor {
       return visit_template(vec);
     }
 
-    void visit(ldat::lvec<cppr::boolean>& vec) {
+    void visit(ldat::lvec<ldat::boolean>& vec) {
       return visit_template(vec);
     }
 

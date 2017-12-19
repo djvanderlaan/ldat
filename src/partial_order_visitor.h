@@ -21,9 +21,9 @@ class porder_visitor : public ldat::lvec_visitor {
 
         bool operator()(ldat::vec::vecsize lhs, ldat::vec::vecsize rhs) {
           T val_lhs = vec_.get(lhs-1);
-          if (cppr::is_nan(val_lhs)) return false;
+          if (ldat::is_nan(val_lhs)) return false;
           T val_rhs = vec_.get(rhs-1);
-          if (cppr::is_nan(val_rhs)) return true;
+          if (ldat::is_nan(val_rhs)) return true;
           return val_lhs < val_rhs;
         }
 
@@ -60,7 +60,7 @@ class porder_visitor : public ldat::lvec_visitor {
       return visit_template(vec);
     }
 
-    void visit(ldat::lvec<cppr::boolean>& vec) {
+    void visit(ldat::lvec<ldat::boolean>& vec) {
       return visit_template(vec);
     }
 

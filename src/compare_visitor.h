@@ -28,12 +28,12 @@ class compare_visitor : public ldat::lvec_visitor {
         //  0 i_ == j_
         //  1 i_ < j_
         T val_lhs = vec.get(i_);
-        if (cppr::is_nan(val_lhs)) {
+        if (ldat::is_nan(val_lhs)) {
           result_ = -1;
           return;
         }
         T val_rhs = vec.get(j_);
-        if (cppr::is_nan(val_rhs)) {
+        if (ldat::is_nan(val_rhs)) {
           result_ = 1;
           return;
         }
@@ -53,7 +53,7 @@ class compare_visitor : public ldat::lvec_visitor {
       return visit_template(vec);
     }
 
-    void visit(ldat::lvec<cppr::boolean>& vec) {
+    void visit(ldat::lvec<ldat::boolean>& vec) {
       return visit_template(vec);
     }
 

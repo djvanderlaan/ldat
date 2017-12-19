@@ -7,7 +7,7 @@ SEXP partial_sort_cpp(SEXP rv, SEXP rpivots) {
   Rcpp::NumericVector pivots_r(rpivots);
   std::vector<ldat::vec::vecsize> pivots;
   for (R_xlen_t i = 0; i < pivots_r.length(); ++i) {
-    if (cppr::is_na(pivots_r[i]))
+    if (ldat::is_na(pivots_r[i]))
       throw Rcpp::exception("Missing values in the pivots");
     pivots.push_back(pivots_r[i] - 1);
   }
