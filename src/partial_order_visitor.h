@@ -41,7 +41,7 @@ class porder_visitor : public ldat::lvec_visitor {
       // we use the values pointed to by the order vector
       ldat::lvec_iterator<double> p = result->end();
       for (auto piv = pivots_.begin(); piv != pivots_.end(); ++piv) {
-        if (((*piv) >= result->size()) || ((*piv) < 0)) 
+        if ((*piv) >= result->size()) 
           throw Rcpp::exception("Pivots out of range.");
         ldat::lvec_iterator<double> q = result->begin() + (*piv);
         std::nth_element(result->begin(), q, p, compare<T>(vec));
