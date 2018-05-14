@@ -1,0 +1,12 @@
+
+
+ldat version 0.2.0
+===============================================================================
+* Following `lvec`, changed internals to Rcpp.
+* Fixed bug with `slice_range` for data.frames with only one column.
+* Fixed some compiler warnings.
+
+ldat version 0.1.0
+===============================================================================
+Initial release
+

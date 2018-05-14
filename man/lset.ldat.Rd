@@ -28,4 +28,3 @@ When values is a vector the values are assigned to each column in
 of the same length as \code{x}. Each element of \code{values} is 
 assigned to the corresponding element of \code{x}.
 }
-

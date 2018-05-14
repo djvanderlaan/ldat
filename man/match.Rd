@@ -29,4 +29,3 @@ in \code{table} is found, \code{NA} is returned for the corresponding record.
 \description{
 Value matching
 }
-

@@ -14,16 +14,16 @@ document:
 load_all: 
 	R --vanilla --slave -e "devtools::load_all()"
 
-install:
+install: document
 	R --vanilla --slave -e "devtools::install()"
 
-test: load_all
+test: load_all document
 	R --vanilla --slave -e "devtools::test()"
 
-check:
+check: document
 	R --vanilla --slave -e "devtools::check()"
 
-build: 
+build:  document
 	R --vanilla --slave -e "devtools::build()"
 
 clean:

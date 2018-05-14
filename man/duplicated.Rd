@@ -31,4 +31,3 @@ are marked as duplicates.
 The function processes the data in chunks. The size of the chunks can be 
 controlled using the option `chunk_size` (see \code{\link{chunk}}).
 }
-
