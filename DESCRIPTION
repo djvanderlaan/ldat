@@ -1,7 +1,7 @@
 Package: ldat
 Title: Large Data Sets
 Version: 0.2.0
-Date: 2018-05-14
+Date: 2018-05-15
 Author: Jan van der Laan
 Maintainer: Jan van der Laan <djvanderlaan@unrealizedtime.nl>
 Description: Tools for working with vectors and data sets that are too large
@@ -11,7 +11,7 @@ Description: Tools for working with vectors and data sets that are too large
     'data.frame'-like objects storing its data in 'lvec' objects.
 URL: https://github.com/djvanderlaan/ldat
 Depends:
-    R (>= 3.3.2),
+    R (>= 3.2.0),
     lvec (>= 0.2.0),
     stats,
     Rcpp

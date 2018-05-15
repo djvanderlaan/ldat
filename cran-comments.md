@@ -6,6 +6,10 @@ work with the current version of `lvec` (0.1.1). I will upload both packages at
 the same time. In the Description file of `ldat` I have added a minimal version
 number for `lvec` (>= 0.2.0). 
 
+The CRAN checks on https://cran.r-project.org/web/checks/check_results_ldat.html
+show two notes and an error on Solaris. The notes should be fixed and the error
+should also be fixed, but without a Solaris system to test on this is a bit of a
+shot in the dark. 
 
 
 ## Test environments
