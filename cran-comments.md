@@ -14,6 +14,7 @@ shot in the dark.
 
 ## Test environments
 * local ubuntu 17.10 install, R 3.4.4
+* local ubuntu 17.10 install, R 3.4.4; with valgrind
 * R-devel on windows using the R-builder
 
 I had problems testing the package on other platforms as R 3.5 is not yet 
