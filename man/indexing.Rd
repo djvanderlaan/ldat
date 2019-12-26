@@ -26,6 +26,8 @@
 
 \item{j}{a selection of columns (a character, numeric or logical vector).}
 
+\item{drop}{ignored; included for compatability with \code{data.frame}.}
+
 \item{clone}{\code{\link{clone}} columns when selecting only columns.}
 
 \item{...}{ignored.}

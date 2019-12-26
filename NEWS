@@ -1,5 +1,9 @@
 
 
+ldat version 0.3.0
+===============================================================================
+* Fixed bug in indexing with `drop` argument. 
+
 ldat version 0.2.0
 ===============================================================================
 * Following `lvec`, changed internals to Rcpp.

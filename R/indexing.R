@@ -7,6 +7,7 @@
 #' @param range an range of indices. See \code{\link{lget}}.
 #' @param value new values. See \code{\link{lget}}.
 #' @param clone \code{\link{clone}} columns when selecting only columns. 
+#' @param drop ignored; included for compatability with \code{data.frame}.
 #' @param ... ignored.
 #'
 #' @details
