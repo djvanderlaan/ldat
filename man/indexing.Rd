@@ -11,7 +11,7 @@
 
 \method{[}{lvec}(x, i, range) <- value
 
-\method{[}{ldat}(x, i, j, ..., range = NULL, clone = TRUE)
+\method{[}{ldat}(x, i, j, drop = FALSE, range = NULL, clone = TRUE)
 
 \method{[}{ldat}(x, i, range) <- value
 }
@@ -26,9 +26,9 @@
 
 \item{j}{a selection of columns (a character, numeric or logical vector).}
 
-\item{...}{ignored.}
-
 \item{clone}{\code{\link{clone}} columns when selecting only columns.}
+
+\item{...}{ignored.}
 }
 \description{
 Indexing of lvec objects

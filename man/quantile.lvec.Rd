@@ -4,8 +4,14 @@
 \alias{quantile.lvec}
 \title{Calculate the quantiles of an lvec}
 \usage{
-\method{quantile}{lvec}(x, probs = seq(0, 1, 0.25), names = TRUE,
-  na.rm = TRUE, true_probs = FALSE, ...)
+\method{quantile}{lvec}(
+  x,
+  probs = seq(0, 1, 0.25),
+  names = TRUE,
+  na.rm = TRUE,
+  true_probs = FALSE,
+  ...
+)
 }
 \arguments{
 \item{x}{an object of type \code{\link{lvec}}.}

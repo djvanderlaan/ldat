@@ -34,11 +34,16 @@
 
 #' @rdname indexing
 #' @export
-`[.ldat` <- function(x, i, j, ..., range = NULL, clone = TRUE) {
-  nindices <- nargs() - 1
-  if (!missing(clone)) nindices <- nindices - 1
+`[.ldat` <- function(x, i, j, drop = FALSE, range = NULL, clone = TRUE) {
+  nindices <- nargs() - 1L
+  if (!missing(clone)) nindices <- nindices - 1L
+  if (!missing(drop)) nindices <- nindices - 1L
+  if (!missing(drop) && drop)
+    warning("'drop = TRUE' argument will be ignored.")
 
-  if (nindices == 1 && missing(range)) {
+  if (nindices == 0) {
+    res <- if (clone) clone(x) else x
+  } else if (nindices == 1 && missing(range)) {
     res <- unclass(x)[i]
     if (clone) res <- lapply(res, clone)
     structure(res, class = "ldat")
