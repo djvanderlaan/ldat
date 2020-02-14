@@ -10,17 +10,13 @@
 \usage{
 slice_range(x, range, begin = range[1], end = range[2], ...)
 
-\method{slice_range}{lvec}(x, range, begin = range[1], end = range[2],
-  as_r = FALSE, ...)
+\method{slice_range}{lvec}(x, range, begin = range[1], end = range[2], as_r = FALSE, ...)
 
-\method{slice_range}{ldat}(x, range, begin = range[1], end = range[2],
-  as_r = FALSE, ...)
+\method{slice_range}{ldat}(x, range, begin = range[1], end = range[2], as_r = FALSE, ...)
 
-\method{slice_range}{default}(x, range, begin = range[1],
-  end = range[2], ...)
+\method{slice_range}{default}(x, range, begin = range[1], end = range[2], ...)
 
-\method{slice_range}{data.frame}(x, range, begin = range[1],
-  end = range[2], ...)
+\method{slice_range}{data.frame}(x, range, begin = range[1], end = range[2], ...)
 }
 \arguments{
 \item{x}{the object to select items from}

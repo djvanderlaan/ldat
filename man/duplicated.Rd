@@ -5,8 +5,7 @@
 \alias{unique.lvec}
 \title{Find duplicates in a vector}
 \usage{
-\method{duplicated}{lvec}(x, incomparables = FALSE, fromLast = FALSE,
-  ...)
+\method{duplicated}{lvec}(x, incomparables = FALSE, fromLast = FALSE, ...)
 
 \method{unique}{lvec}(x, incomparables = FALSE, ...)
 }

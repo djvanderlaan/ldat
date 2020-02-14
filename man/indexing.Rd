@@ -29,8 +29,6 @@
 \item{drop}{ignored; included for compatability with \code{data.frame}.}
 
 \item{clone}{\code{\link{clone}} columns when selecting only columns.}
-
-\item{...}{ignored.}
 }
 \description{
 Indexing of lvec objects

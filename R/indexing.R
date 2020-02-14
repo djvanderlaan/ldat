@@ -8,7 +8,6 @@
 #' @param value new values. See \code{\link{lget}}.
 #' @param clone \code{\link{clone}} columns when selecting only columns. 
 #' @param drop ignored; included for compatability with \code{data.frame}.
-#' @param ... ignored.
 #'
 #' @details
 #' These functions are a wrapper around \code{\link{lget}} and 

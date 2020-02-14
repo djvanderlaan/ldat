@@ -1,9 +1,9 @@
 Package: ldat
 Title: Large Data Sets
-Version: 0.3.0
-Date: 2019-12-26
+Version: 0.3.1
+Date: 2019-02-14
 Author: Jan van der Laan
-Maintainer: Jan van der Laan <jan@knowledge-arcana.nl>
+Maintainer: Jan van der Laan <r@eoos.dds.nl>
 Description: Tools for working with vectors and data sets that are too large
     to keep in memory. Extends the basic functionality provided in the 'lvec'
     package. Provides basis statistical functionality of 'lvec' objects, such
