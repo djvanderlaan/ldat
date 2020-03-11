@@ -24,7 +24,7 @@ test_that("indexing works", {
 })
 
 test_that("indexing of ldat object", {
-  x_r <- data.frame(a = 1:3, b = letters[1:3])
+  x_r <- data.frame(a = 1:3, b = letters[1:3], stringsAsFactors = TRUE)
   x <- as_ldat(x_r)
 
   expect_equal(as.data.frame(x[]), x_r)

@@ -3,7 +3,7 @@ context("lget.ldat")
 
 test_that("lget.dat works", {
   
-  x_r <- data.frame(x = 1:20, y = letters[1:20])
+  x_r <- data.frame(x = 1:20, y = letters[1:20], stringsAsFactors = TRUE)
   x <- as_ldat(x_r)
   
   # Using expect_equivalent othrwise testhtat complains about row.names not

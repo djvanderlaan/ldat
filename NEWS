@@ -1,5 +1,10 @@
 
 
+ldat version 0.3.2
+===============================================================================
+* Fixed issues with changing the default value of the argument stringAsFactors
+  of data.frame
+
 ldat version 0.3.0
 ===============================================================================
 * Fixed bug in indexing with `drop` argument. 
